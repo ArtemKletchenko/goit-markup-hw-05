@@ -580,6 +580,8 @@ ol {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-open {
@@ -599,11 +601,13 @@ ol {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  padding: 24px;
+  padding: 72px 24px 24px 24px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close {
   position: absolute;
+  padding: 0;
   top: 24px;
   right: 24px;
   width: 24px;
@@ -621,13 +625,27 @@ ol {
 
 .modal-close:hover {
   background-color: #404bbf;
+  border: none;
+}
+
+.modal-close:focus {
+  background-color: #404bbf;
+  border: none;
+}
+
+.close-button {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close:hover svg {
   fill: #fff;
 }
 
-.close-button {
+.modal-close:focus svg {
+  fill: #fff;
+}
+
+.modal-close:hover .close-button {
   fill: #2e2f42;
 }
 
@@ -638,7 +656,6 @@ ol {
   letter-spacing: 0.02em;
   text-align: center;
   color: #2e2f42;
-  margin-top: 48px;
   margin-bottom: 16px;
 }
 
